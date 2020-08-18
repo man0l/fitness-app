@@ -13,5 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-slides pager="true" [options]="slideOpts" (ionSlideDidChange)="c($event)" style="height: 30%;" #slides>
+    <ion-slide *ngFor="let day of range" value="{{day}}" style="height: 20%;">
+        <h1 data-date="{{day}}">{{day}}</h1>
+    </ion-slide>
+</ion-slides>
+
 </ion-content>
