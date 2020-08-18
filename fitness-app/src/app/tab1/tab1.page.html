@@ -19,6 +19,17 @@
               (onEventSelected)="onEventSelected($event)"
               (onTitleChanged)="onViewTitleChanged($event)"
               (onTimeSelected)="onTimeSelected($event)"
+              [monthviewDisplayEventTemplate]="template"
+              [weekviewAllDayEventTemplate]="template1"
               step="30">
     </calendar>
+
+    <ng-template #template let-view="view" let-row="row" let-col="col">
+        {{view.dates[row*7+col].label}}
+    </ng-template>
+
+    <ng-template #template1 let-displayEvent="displayEvent">
+        <div class="calendar-event-inner">{{displayEvent.event.title}}</div>
+        <span>huikoooo</span>
+    </ng-template>
 </ion-content>
